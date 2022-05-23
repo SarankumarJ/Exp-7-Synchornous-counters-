@@ -4,6 +4,7 @@
 ### SOFTWARE REQUIRED:   Quartus prime
 ### THEORY 
 
+
 ## UP COUNTER 
 The counter is a digital sequential circuit and here it is a 4 bit counter, which simply means it can count from 0 to 15 and vice versa based upon the direction of counting (up/down). 
 
@@ -46,39 +47,61 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
-
-
-
+1. Open a new project using Quartus II.
+2. Declare the inputs and outputs inside module projname().
+3. Set the reset value using register.
+4. Use commands like begin and end to stimulate the counter.
+5. For Up counter increment the count and for Down counter decrement the count.
+6. End the verilog programming.
 ### PROGRAM 
-/*
+
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: Sarankumar J
+RegisterNumber:  212221230087
+
+module uc(input clk,input reset,output[0:3]counter);
+reg[0:3] counter_up;
+always@ (posedge clk or posedge reset)
+begin
+if(reset)
+counter_up <= 4'd0;
+else
+counter_up <= counter_up + 4'd1;
+end
+assign counter = counter_up;
+endmodule
 
 
+module UC(input clk,input reset,output[0:3]counter);
+reg[0:3] counter_up;
+always@ (posedge clk or posedge reset)
+begin
+if(reset)
+counter_up <= 4'd0;
+else
+counter_up <= counter_up + 4'd1;
+end
+assign counter = counter_up;
+endmodule
 
 
+### RTL LOGIC UP COUNTER AND DOWN COUNTER
+## UP COUNTER:
+![image](./up%20rtl.png)
+## DOUWN COUNTER:
+![image](./down%20rtl.png)
 
-
-### RTL LOGIC UP COUNTER AND DOWN COUNTER  
-
-
-
-
-
-
-
-
-
-### TIMING DIGRAMS FOR COUNTER  
-
-
+### TIMING DIGRAMS FOR COUNTER
+## UP COUNTER:
+![image](./up%20timing.png)
+## DOWN COUNTER
+![image](./down%20timing.png)
 
 
 
 ### TRUTH TABLE 
+![git](./up%20truth.png)
+![git](./down%20truth.png)
 
 
 
@@ -86,3 +109,4 @@ RegisterNumber:
 
 
 ### RESULTS 
+Thus Synchornous counters up counter and down counter circuit are studied and the truth table for different logic gates are verified.
